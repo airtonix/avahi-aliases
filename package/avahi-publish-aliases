@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import os, sys
+from subprocess import Popen
+
+
+def ensure_file (path):
+	"""
+		Looks for  file at provided path, creates it if it does not exist.
+		Returns the file.
+	"""
+	rfile = None	
+	if not os.path.exists(path) and os.path.isfile(path) :
+		rfile = open(path,"w+");
+		print("ensuring file : %s " % path)
+
+	print("file ensured : %s " % path)
+	return rfile
+
+
+command = '/usr/bin/avahi-publish-domain-alias'
+alias_pid_path = "/tmp/avahi-publish-alias.pid"
+alias_file_path = "/etc/avahi/aliases"
+
+alias_file = open(alias_file_path)
+if not os.path.exists(alias_pid_path) :
+	open(alias_pid_path,"w").close()
+
+alias_pid = open(alias_pid_path,"r")
+
+
+for line in alias_pid :
+	txt = line.strip('\n')
+	if len(txt) > 0 :
+		print("kill %s" % txt )
+		os.system("kill %s" % txt)
+		
+alias_pid.close()
+alias_pid = open("/tmp/avahi-publish-alias.pid","w+")
+
+for line in alias_file :
+	txt = line.strip('\n')
+	if len(txt) > 0 :
+		print("publishing : << %s >>" % txt)
+		process = Popen([command, txt])
+		alias_pid.write("%s\n" % str(process.pid))
+
+alias_pid.close()
+
+print("done")

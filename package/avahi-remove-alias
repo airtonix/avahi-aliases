@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import os,sys
+from subprocess import Popen, PIPE
+
+args = sys.argv[1:]
+
+for alias in args :
+
+	alias_file = open("/etc/avahi/aliases")
+	alias_output = []
+
+	for line in alias_file :
+		if line != alias :
+			alias_output.append(line)
+
+	alias_file.close()
+	alias_file = open("/etc/avahi/aliases","w")
+	alias_file.writelines(alias_output)
+	alias_file.close()
+
+os.system("avahi-publish-aliases")
+
