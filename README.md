@@ -10,6 +10,7 @@ Do this:
 2. add aliases to /etc/avahi/aliases
 3. avahi-add-alias
 o
+
 ### Uninstall ###
 
 1. ./uninstall.sh
@@ -18,6 +19,8 @@ o
 
 Fedora 13+
 ----------
-
 Requires avahi-ui-tools. Python bindings seem to have been in avahi-tools pre F13 and have been moved.
 
+Ubuntu 10+
+----------
+Requires python-dbus, python-avahi
