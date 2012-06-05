@@ -4,21 +4,26 @@
 SCRIPT_PATH=${0%/*}
 . $SCRIPT_PATH/lib/coloured_messages.sh
 
+if [ "$(id -u)" != "0" ]; then
+  message "This must be run as root (sudo)" "error"
+  exit 1
+fi
+
 message "Install Avahi Aliases Manager" "header"
 for file in `ls ./package/*`;do
 	message "${file}"
-	sudo chmod 777 ${file}
-	sudo chmod +x ${file}
-	sudo chown root:root ${file}
-	sudo cp ${file} /usr/bin/
+	chmod 777 ${file}
+	chmod +x ${file}
+	chown root:root ${file}
+	cp ${file} /usr/bin/
 done
 
 message "Making avahi-aliases list directory" "header"
 message "Use this directory to place individual lists of avahi-aliases."
-sudo mkdir /etc/avahi/aliases.d/
+mkdir /etc/avahi/aliases.d/
 
 message "Making central avahi-aliases file" "header"
-sudo touch /etc/avahi/aliases
+touch /etc/avahi/aliases
 #message "Fill this with aliases (one per line) to ${HOSTNAME}" "result"
 
 message "Installation of Avahi-Aliases Done" "success"
