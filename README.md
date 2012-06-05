@@ -4,16 +4,22 @@ Avahi Aliases!
 Do this:
 --------
 
-### Install and setup ###
+### Install and setup
 
-1. ./install.sh
-2. add aliases to /etc/avahi/aliases
-3. avahi-add-alias
+    sudo ./install.sh
+    add aliases to /etc/avahi/aliases
+    sudo avahi-add-alias
 
-### Uninstall ###
+### Uninstall
 
-1. ./uninstall.sh
+    sudo ./uninstall.sh
 
+### systemd
+
+Included is an installer for a systemd service. I've only tested this on Fedora 17.
+
+    sudo ./install-systemd
+    sudo systemctl <start|stop|restart> avahi-alias.serivce
 
 Fedora 13+
 ----------
