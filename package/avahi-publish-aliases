@@ -2,7 +2,7 @@
 
 import os, sys
 from subprocess import Popen
-
+import glob
 
 def ensure_file (path):
 	"""
@@ -21,13 +21,17 @@ def ensure_file (path):
 command = '/usr/bin/avahi-publish-domain-alias'
 alias_pid_path = "/tmp/avahi-publish-alias.pid"
 alias_file_path = "/etc/avahi/aliases"
+alias_dir_glob = "/etc/avahi/aliases.d/*"
 
 alias_file = open(alias_file_path)
 if not os.path.exists(alias_pid_path) :
 	open(alias_pid_path,"w").close()
 
+alias_dir = glob.glob(alias_dir_glob)
+
 alias_pid = open(alias_pid_path,"r")
 
+aliases = set()
 
 for line in alias_pid :
 	txt = line.strip('\n')
@@ -38,12 +42,22 @@ for line in alias_pid :
 alias_pid.close()
 alias_pid = open("/tmp/avahi-publish-alias.pid","w+")
 
+for file in alias_dir :
+	contents = open(file, 'r')
+	for line in contents :
+		entry = line.strip('\n')
+		if len(entry) > 0 :
+			aliases.add(entry)
+
 for line in alias_file :
-	txt = line.strip('\n')
-	if len(txt) > 0 :
-		print("publishing : << %s >>" % txt)
-		process = Popen([command, txt])
-		alias_pid.write("%s\n" % str(process.pid))
+	entry = line.strip('\n')
+	if len(entry) > 0 :
+		aliases.add(entry)
+
+for txt in aliases:
+	print("publishing : << %s >>" % txt)
+	process = Popen([command, txt])
+	alias_pid.write("%s\n" % str(process.pid))
 
 alias_pid.close()
 
