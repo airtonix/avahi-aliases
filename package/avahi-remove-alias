@@ -29,9 +29,8 @@ for alias in args :
 			if entry != alias :
 				next
 			else :
-				print "Matched " + alias + " in file " + file
+        print "removing " + file + " because it matches " + alias
 				os.unlink(file)
-				print "Unlinked " + file
 
 os.system("avahi-publish-aliases")
 
