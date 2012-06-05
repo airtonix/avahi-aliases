@@ -7,8 +7,8 @@ Do this:
 ### Install and setup
 
     sudo ./install.sh
-    add aliases to /etc/avahi/aliases
-    sudo avahi-add-alias
+    #add aliases to /etc/avahi/aliases
+    sudo avahi-publish-aliases
 
 ### Uninstall
 
