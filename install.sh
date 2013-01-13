@@ -7,9 +7,8 @@ SCRIPT_PATH=${0%/*}
 message "Install Avahi Aliases Manager" "header"
 for file in `ls ./package/*`;do
 	message "${file}"
-	sudo chmod 777 ${file}
-	sudo chmod +x ${file}
 	sudo chown root:root ${file}
+	sudo chmod u=rwx,go=rx ${file}
 	sudo cp ${file} /usr/bin/
 done
 
