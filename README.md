@@ -25,7 +25,7 @@ Included is an installer for a systemd service. I've only tested this on Fedora 
 
 Included is an installer for an /etc/init.d script (tested on Debian Squeeze)
 
-		sudo ./install-init.sh
+	sudo ./install-init.sh
 		
 
 Fedora 13+
