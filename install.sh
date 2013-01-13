@@ -8,12 +8,23 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
+PREFIX="/usr"
+
+BINDIR="$PREFIX/bin"
+mkdir -p "$BINDIR"
+
+BIN_FILES="avahi-add-alias avahi-list-aliases avahi-publish-aliases avahi-publish-domain-alias avahi-remove-alias"
+
 message "Install Avahi Aliases Manager" "header"
-for file in `ls ./package/*`;do
-	message "${file}"
-	chown root:root ${file}
-	chmod u=rwx,go=rx ${file}
-	cp ${file} /usr/bin/
+for file in $BIN_FILES ;do
+	SOURCE="$SCRIPT_PATH/package/$file"
+	DESTINATION="$BINDIR/$file"
+	
+	message "$SOURCE"
+	cp "${SOURCE}" "$DESTINATION"
+
+	chown root:root "$DESTINATION"
+	chmod u=rwx,go=rx "$DESTINATION"
 done
 
 message "Making avahi-aliases list directory" "header"
