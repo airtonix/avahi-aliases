@@ -7,8 +7,10 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
+SOURCE="$SCRIPT_PATH/package/avahi-aliases"
+
 message "Install Avahi Aliases init script" "header"
-cp avahi-aliases /etc/init.d
+cp "$SOURCE" /etc/init.d
 chown root:root /etc/init.d/avahi-aliases
 chmod u=rwx,go=rx /etc/init.d/avahi-aliases
 
