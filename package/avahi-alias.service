@@ -1,0 +1,10 @@
+[Unit]
+Description=Avahi Aliases
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/avahi-publish-aliases
+
+[Install]
+Wants=avahi-daemon.service
+WantedBy=multi-user.target

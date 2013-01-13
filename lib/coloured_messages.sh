@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 message(){
 
 	MESSAGE=$1
@@ -53,7 +53,7 @@ message(){
 			;;
 	esac
 
-	echo "${START}${COLOURS} ${MESSAGE} ${FINISH}"
+	echo -e "${START}${COLOURS} ${MESSAGE} ${FINISH}"
 	tput sgr0
 }
 

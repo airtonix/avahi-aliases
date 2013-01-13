@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 import os,sys
 from subprocess import Popen, PIPE
+import glob
 
 args = sys.argv[1:]
+
+alias_dir_glob = "/etc/avahi/aliases.d/*"
+alias_dir = glob.glob(alias_dir_glob)
 
 for alias in args :
 
@@ -17,6 +21,16 @@ for alias in args :
 	alias_file = open("/etc/avahi/aliases","w")
 	alias_file.writelines(alias_output)
 	alias_file.close()
+
+	for file in alias_dir :
+		contents = open(file,'rw')
+		for line in contents :
+			entry = line.strip('\n')
+			if entry != alias :
+				next
+			else :
+				print "removing " + file + " because it matches " + alias
+				os.unlink(file)
 
 os.system("avahi-publish-aliases")
 
