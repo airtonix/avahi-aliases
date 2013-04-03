@@ -13,7 +13,7 @@ ROOT_DIR = os.path.dirname(__file__)
 SOURCE_DIR = os.path.join(ROOT_DIR)
 
 setup(
-    name = "avahi_aliases",
+    name = "avahi-aliases",
     version = __import__('avahi_aliases').__version__,
     classifiers = (
         'Development Status :: 4 - Beta',
