@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-# avahi-alias.py
 
 import avahi, dbus
 from encodings.idna import ToASCII
