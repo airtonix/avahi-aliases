@@ -1,0 +1,12 @@
+# Place all your cnames here.
+# Hash sign is for comments
+#
+# If you want to put aliases into logical groups, then
+# additional text files can be created
+#
+# Example
+#  if your machine were called zeus.local
+#  django.zeus.local
+#  scoreboard.zeus.local
+#  coffee.zeus.local
+#  something.something.something.darkside

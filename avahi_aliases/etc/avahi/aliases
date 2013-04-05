@@ -1,0 +1,7 @@
+#
+# Avahi Aliases
+# Zenobius Jiricek
+#
+
+# loop timeout before next announce. (beta)
+TIMEOUT=30

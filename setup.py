@@ -32,18 +32,17 @@ setup(
 
     description='''Simple python application that manages the announcement of multiple avahi aliases''',
     long_description = read('README'),
-
+    install_requires = [
+        'python-daemon',
+    ],
     packages = find_packages(),
     scripts = [
-        'avahi_aliases/bin/avahi-add-alias',
-        'avahi_aliases/bin/avahi-publish-aliases',
-        'avahi_aliases/bin/avahi-publish-domain-alias',
-        'avahi_aliases/bin/avahi-remove-alias',
+        'avahi_aliases/bin/avahi-alias',
     ],
     data_files = [
         ('/etc/init/',              ['avahi_aliases/etc/init/avahi-aliases.conf'] ),
         ('/etc/avahi/',             ['avahi_aliases/etc/avahi/aliases']),
-        ('/etc/avahi/aliases.d/',   ['avahi_aliases/etc/avahi/aliases.d/README']),
+        ('/etc/avahi/aliases.d/',   ['avahi_aliases/etc/avahi/aliases.d/default']),
     ],
     zip_safe = False,
 )
