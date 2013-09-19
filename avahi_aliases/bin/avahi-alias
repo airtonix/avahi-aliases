@@ -98,7 +98,7 @@ class AvahiAliases:
     def run(self, *args, **kwargs):
         """ runner for python-daemon """
         self.aliases = self.get_aliases(Settings.ALIAS_DEFINITIONS)
-        self.logger.info("Announcing aliases [{}]".format(" ".join(self.aliases)))
+        #self.logger.info("Announcing aliases [{}]".format(" ".join(self.aliases)))
 
         for cname in self.aliases:
             cname = unicode(cname, locale.getpreferredencoding())
