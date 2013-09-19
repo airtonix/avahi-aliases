@@ -39,9 +39,9 @@ Usage
 Daemon Control:
 -----------------
 ```
-	sudo service avahi-alias start
-	sudo service avahi-alias restart
-	sudo service avahi-alias stop
+	sudo start avahi-aliases
+	sudo restart avahi-aliases
+	sudo stop avahi-aliases
 ```
 
 Creating Aliases
