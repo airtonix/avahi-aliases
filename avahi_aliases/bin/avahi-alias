@@ -18,8 +18,8 @@ class Settings:
     CLASS_IN = 0x01
     TYPE_CNAME = 0x05
 
-    ALIASES_CONFIG = os.sep+os.path.join("etc", "avahi", "aliases")
-    ALIAS_CONF_PATH = os.sep + os.path.join("etc","avahi","aliases.d")
+    ALIASES_CONFIG = "/etc/avahi/aliases"
+    ALIAS_CONF_PATH = "/etc/avahi/aliases.d"
     ALIAS_DEFINITIONS =[ os.path.join(ALIAS_CONF_PATH, config_file) for config_file in os.listdir(ALIAS_CONF_PATH) ]
 
 
