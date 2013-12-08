@@ -58,3 +58,10 @@ Notes:
 	* blank lines are ignored
 	* lines prefixed with `#` are ignored
 	* you must manually restart the daemon after modifying alias files
+
+Todo
+=====
+
+1. implement `sudo avahi-alias add/remove aliasname`
+2. implement `sudo avahi-alias list`
+
