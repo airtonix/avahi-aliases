@@ -1,5 +1,6 @@
-Avahi Aliases
+Avahi Aliases [![Build Status](https://travis-ci.org/till/avahi-aliases.svg?branch=topics%2Fmake-it-run)](https://travis-ci.org/till/avahi-aliases)
 =============
+
 Copyright 2013 Zenobius Jiricek
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit:
@@ -16,36 +17,37 @@ But you should really read the full liscense :
 
 	http://creativecommons.org/licenses/by-sa/3.0/
 
+# Please note
 
-Install
-==========
+This fork is on [github.com/till](https://github.com/till) and actually **maintained**. I currently target Vagrant with Ubuntu 14.04 (LTS) and Python 2.7 to keep this service running there.
+
+All additions are welcome. :)
+
+# Install
 
 ```
-sudo apt-get install python-avahi
-sudo pip install git+git://github.com/airtonix/avahi-aliases.git
+sudo apt-get install python-avahi python-pip
+sudo pip install git+git://github.com/till/avahi-aliases.git@topics/make-it-run
 ```
 
-Uninstall
-==========
+## Uninstall
 
 ```
 sudo pip uninstall avahi-aliases
 ```
 
+# Usage
 
-Usage
-==========
+## Daemon Control (upstart):
 
-Daemon Control:
------------------
 ```
 	sudo start avahi-aliases
 	sudo restart avahi-aliases
 	sudo stop avahi-aliases
 ```
 
-Creating Aliases
------------------
+## Creating Aliases
+
 1. `sudo nano /etc/avahi/aliases.d/default`
 2. insert something.local on a new line
 3. save
@@ -58,3 +60,8 @@ Notes:
 	* blank lines are ignored
 	* lines prefixed with `#` are ignored
 	* you must manually restart the daemon after modifying alias files
+
+## Automation
+
+See the following cookbooks to get an idea how automation around this service works:
+https://github.com/till/easybib-cookbooks/tree/master/avahi
