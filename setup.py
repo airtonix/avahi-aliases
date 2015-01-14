@@ -33,7 +33,7 @@ setup(
     description='''Simple python application that manages the announcement of multiple avahi aliases''',
     long_description = read('README'),
     install_requires = [
-        'python-daemon',
+        'python-daemon<2',
     ],
     packages = find_packages(),
     scripts = [
