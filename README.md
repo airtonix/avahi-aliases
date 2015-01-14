@@ -27,7 +27,7 @@ All additions are welcome. :)
 
 ```
 sudo apt-get install python-avahi python-pip
-sudo pip install git+git://github.com/till/avahi-aliases.git
+sudo pip install git+git://github.com/till/avahi-aliases.git@topics/make-it-run
 ```
 
 ## Uninstall
