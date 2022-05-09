@@ -19,7 +19,9 @@ But you should really read the full liscense :
 
 # Please note
 
-This fork is on [github.com/till](https://github.com/till) and actually **maintained**. I currently target Vagrant with Ubuntu 14.04 (LTS) and Python 2.7 to keep this service running there.
+> Use the insights button and find an updated fork. I am no longer using Vagrant.
+
+This fork is on [github.com/till](https://github.com/till) ~~and actually **maintained**~~. I currently target Vagrant with Ubuntu 14.04 (LTS) and Python 2.7 to keep this service running there.
 
 All additions are welcome. :)
 
