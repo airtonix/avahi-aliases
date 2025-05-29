@@ -1,66 +1,46 @@
-Avahi Aliases
-=============
-Copyright 2013 Zenobius Jiricek
+# Avahi Aliases
 
-This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit:
-	http://creativecommons.org/licenses/by-sa/3.0/.
+## Install
 
-Basically:
- 1. You can use this for commerical and personal projects.
- 2. You must give me credit in your product.
- 3. If you alter, transform, or build upon this work, you may
-    distribute the resulting work only under the same or similar
-    license to this one.
-
-But you should really read the full liscense :
-
-	http://creativecommons.org/licenses/by-sa/3.0/
-
-
-Install
-==========
-
-```
+```sh
 sudo apt-get install python-avahi
 sudo pip install git+git://github.com/airtonix/avahi-aliases.git
 ```
 
-Uninstall
-==========
+## Uninstall
 
-```
+```sh
 sudo pip uninstall avahi-aliases
 ```
 
+## Usage
 
-Usage
-==========
+### Daemon Control
 
-Daemon Control:
------------------
-```
-	sudo service avahi-alias start
-	sudo service avahi-alias restart
-	sudo service avahi-alias stop
+```sh
+sudo service avahi-alias start
+sudo service avahi-alias restart
+sudo service avahi-alias stop
 ```
 
-Creating Aliases
------------------
+### Creating Aliases
+
 1. `sudo nano /etc/avahi/aliases.d/default`
 2. insert something.local on a new line
 3. save
 4. ???
 5. profit
 
-Notes:
-	* aliases must end in `.local`
-	* One alias per line
-	* blank lines are ignored
-	* lines prefixed with `#` are ignored
-	* you must manually restart the daemon after modifying alias files
 
-Todo
-=====
+## Notes
+
+* aliases must end in `.local`
+* One alias per line
+* blank lines are ignored
+* lines prefixed with `#` are ignored
+* you must manually restart the daemon after modifying alias files
+
+# Todo
 
 1. implement `sudo avahi-alias add/remove aliasname`
 2. implement `sudo avahi-alias list`
